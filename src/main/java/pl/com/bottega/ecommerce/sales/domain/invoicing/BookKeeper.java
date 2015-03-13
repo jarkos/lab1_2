@@ -24,9 +24,12 @@ import pl.com.bottega.ecommerce.sharedkernel.Money;
 
 public class BookKeeper {
 
+	FactoryOfInvoice factory;
+	
 	public Invoice issuance(ClientData client, List<RequestItem> items) {
-		Invoice invoice = new Invoice(Id.generate(), client);
-
+		
+		Invoice invoice = FactoryOfInvoice.invoceCreate(client);
+//		Invoice invoice = new Invoice(Id.generate(), client); // zamiana na FactoryPattern
 		for (RequestItem item : items) {
 			Money net = item.getTotalCost();
 			BigDecimal ratio = null;
