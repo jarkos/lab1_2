@@ -6,8 +6,8 @@ import pl.com.bottega.ecommerce.sales.domain.invoicing.Invoice;
 
 public class FactoryOfInvoice {
 	
-	public static Invoice invoceCreate(ClientData client) {
-		Invoice invoice = new Invoice(Id.generate(), client);
+	public static Invoice invoceCreate(Id id, ClientData client) {
+		Invoice invoice = new Invoice(id, client);
 		return invoice;
 	}
 	
